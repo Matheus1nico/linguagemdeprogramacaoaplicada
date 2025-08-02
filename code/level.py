@@ -2,7 +2,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WIN_HEIGHT, WHITE_COLOR
+from code.const import WIN_HEIGHT, WHITE_COLOR, MENU_OPTIONS, EVENT_ENEMY
 from code.entity import Entity
 from code.entityfactory import EntityFactory
 
@@ -14,7 +14,11 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
         self.timeout = 20000
+        if game_mode in [MENU_OPTIONS[1], MENU_OPTIONS[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+        pygame.timer.set_timer(EVENT_ENEMY, 2000)
 
     def run(self):
         pygame.mixer_music.load(f'./assets/{self.name}.mp3')
