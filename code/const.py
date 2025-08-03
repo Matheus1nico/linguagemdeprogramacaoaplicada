@@ -9,10 +9,11 @@ YELLOW_COLOR = (255,255,0)
 MENU_OPTIONS = ('UM JOGADOR', 'DOIS JOGADORES - COOPERATIVO', 'DOIS JOGADORES - COMPETITIVO', 'PONTUAÇÕES', 'SAIR')
 
 #entities speeds
-ENTITY_SPEED = {'Level1Bg0': 0,'Level1Bg1': 1,'Level1Bg2': 1,'Level1Bg3': 3,'Level1Bg4': 4,'Level1Bg5': 5,'Level1Bg6': 6, 'Enemy1': 1, 'Enemy2': 1.2}
+ENTITY_SPEED = {'Level1Bg0': 0,'Level1Bg1': 1,'Level1Bg2': 1,'Level1Bg3': 3,'Level1Bg4': 4,'Level1Bg5': 5,'Level1Bg6': 6, 'Enemy1': 1, 'Enemy2': 2}
 PLAYER_SPEED = 3
 #Enemy Spawn Event
-EVENT_ENEMY = pygame.USEREVENT + 1
+ENEMY_EVENT = pygame.USEREVENT + 1
+ENEMY_SPAWN_TIME = 4000
 
 #Gameplay keys
 PLAYER_UP = {'Player1': pygame.K_w,
