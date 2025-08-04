@@ -1,6 +1,8 @@
 import pygame.key
 from code.const import WIN_HEIGHT, PLAYER_SPEED, WIN_WIDTH, PLAYER_UP, PLAYER_DOWN, PLAYER_LEFT, PLAYER_RIGHT, PLAYER_SHOOT
 from code.entity import Entity
+from playershot import PlayerShot
+
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple, ):
@@ -18,3 +20,8 @@ class Player(Entity):
         if pressed_key[PLAYER_RIGHT[self.name] ] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += PLAYER_SPEED
         pass
+
+    def shoot(self):
+        pressed_key = pygame.key.get_pressed()
+        if pressed_key[PLAYER_SHOOT[self.name]]:
+            return PlayerShot(name = f'{self.name}Shot', position = (self.rect.centerx, self.rect.centery))

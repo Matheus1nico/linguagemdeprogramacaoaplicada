@@ -12,6 +12,7 @@ class Entity(ABC):
         self.rect = self.surf.get_rect(left = position[0], top = position[1])
         self.speed = 0
         self.health = ENTITIES_HEALTH[self.name]
+        self.shoot = pygame.image.load('./assets/' + name + '.png').convert_alpha()
 
     @abstractmethod
     def move(self):
