@@ -5,7 +5,7 @@ from playershot import PlayerShot
 
 
 class Player(Entity):
-    def __init__(self, name: str, position: tuple, ):
+    def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
 
     def move(self,):
@@ -17,7 +17,7 @@ class Player(Entity):
             self.rect.centery += PLAYER_SPEED
         if pressed_key[PLAYER_LEFT[self.name]] and self.rect.left > 0:
             self.rect.centerx -= PLAYER_SPEED
-        if pressed_key[PLAYER_RIGHT[self.name] ] and self.rect.right < WIN_WIDTH:
+        if pressed_key[PLAYER_RIGHT[self.name]] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += PLAYER_SPEED
         pass
 
