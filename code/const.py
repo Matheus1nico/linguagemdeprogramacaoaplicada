@@ -33,6 +33,11 @@ ENTITIES_HEALTH = {
     'Player2Shot': 1
 }
 
+ENTITIES_SHOOT_DELAY = {
+    'Player1': 15,
+    'Player2': 15
+}
+
 #Gameplay keys
 PLAYER_UP = {'Player1': pygame.K_w,
              'Player2': pygame.K_UP}

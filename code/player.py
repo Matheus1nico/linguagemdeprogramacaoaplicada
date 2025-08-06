@@ -1,5 +1,6 @@
 import pygame.key
-from code.const import WIN_HEIGHT, PLAYER_SPEED, WIN_WIDTH, PLAYER_UP, PLAYER_DOWN, PLAYER_LEFT, PLAYER_RIGHT, PLAYER_SHOOT
+from code.const import WIN_HEIGHT, PLAYER_SPEED, WIN_WIDTH, PLAYER_UP, PLAYER_DOWN, PLAYER_LEFT, PLAYER_RIGHT, \
+    PLAYER_SHOOT, ENTITIES_SHOOT_DELAY
 from code.entity import Entity
 from playershot import PlayerShot
 
@@ -7,6 +8,7 @@ from playershot import PlayerShot
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+        self.shootDelay = ENTITIES_SHOOT_DELAY[self.name]
 
     def move(self,):
         #WASD player movement
@@ -22,6 +24,9 @@ class Player(Entity):
         pass
 
     def shoot(self):
-        pressed_key = pygame.key.get_pressed()
-        if pressed_key[PLAYER_SHOOT[self.name]]:
-            return PlayerShot(name = f'{self.name}Shot', position = (self.rect.centerx, self.rect.centery))
+        self.shootDelay -= 1
+        if self.shootDelay == 0:
+            self.shootDelay = ENTITIES_SHOOT_DELAY[self.name]
+            pressed_key = pygame.key.get_pressed()
+            if pressed_key[PLAYER_SHOOT[self.name]]:
+                return PlayerShot(name = f'{self.name}Shot', position = (self.rect.centerx, self.rect.centery))
