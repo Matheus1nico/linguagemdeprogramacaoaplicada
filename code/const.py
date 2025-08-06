@@ -9,7 +9,7 @@ YELLOW_COLOR = (255,255,0)
 MENU_OPTIONS = ('UM JOGADOR', 'DOIS JOGADORES - COOPERATIVO', 'DOIS JOGADORES - COMPETITIVO', 'PONTUAÇÕES', 'SAIR')
 
 #entities speeds
-ENTITY_SPEED = {'Level1Bg0': 0,'Level1Bg1': 1,'Level1Bg2': 1,'Level1Bg3': 3,'Level1Bg4': 4,'Level1Bg5': 5,'Level1Bg6': 6, 'Enemy1': 2, 'Enemy2': 3, 'Player1Shot': 4, 'Player2Shot': 4, 'Enemy1Shot': 4, 'Enemy2Shot': 4,}
+ENTITY_SPEED = {'Level1Bg0': 0,'Level1Bg1': 1,'Level1Bg2': 1,'Level1Bg3': 3,'Level1Bg4': 4,'Level1Bg5': 5,'Level1Bg6': 6, 'Enemy1': 1, 'Enemy2': 2, 'Player1Shot': 4, 'Player2Shot': 4, 'Enemy1Shot': 6, 'Enemy2Shot': 6,}
 
 PLAYER_SPEED = 3
 #Enemy Spawn Event
@@ -30,12 +30,16 @@ ENTITIES_HEALTH = {
     'Enemy1': 50,
     'Enemy2': 60,
     'Player1Shot': 1,
-    'Player2Shot': 1
+    'Player2Shot': 1,
+    'Enemy1Shot': 1,
+    'Enemy2Shot': 1
 }
-
+#Shooting delay for entities
 ENTITIES_SHOOT_DELAY = {
     'Player1': 15,
-    'Player2': 15
+    'Player2': 15,
+    'Enemy1': 80,
+    'Enemy2': 80,
 }
 
 #Gameplay keys
