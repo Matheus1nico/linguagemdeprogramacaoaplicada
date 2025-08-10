@@ -18,15 +18,15 @@ ENEMY_SPAWN_TIME = 4000
 
 #Entities Health
 ENTITIES_HEALTH = {
-    'Level1Bg0': 999,
-    'Level1Bg1': 999,
-    'Level1Bg2': 999,
-    'Level1Bg3': 999,
-    'Level1Bg4': 999,
-    'Level1Bg5': 999,
-    'Level1Bg6': 999,
-    'Player1': 300,
-    'Player2': 300,
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Player1': 100,
+    'Player2': 100,
     'Enemy1': 50,
     'Enemy2': 60,
     'Player1Shot': 1,
@@ -40,6 +40,24 @@ ENTITIES_SHOOT_DELAY = {
     'Player2': 15,
     'Enemy1': 80,
     'Enemy2': 80,
+}
+
+ENTITIES_DAMAGES = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Player1': 10,
+    'Player2': 10,
+    'Enemy1': 10,
+    'Enemy2': 10,
+    'Player1Shot': 30,
+    'Player2Shot': 25,
+    'Enemy1Shot': 15,
+    'Enemy2Shot': 15
 }
 
 #Gameplay keys
