@@ -48,7 +48,7 @@ class EntitiesMediator:
                 EntitiesMediator.__verify_entity_collision(entity1, entity2)
 
     @staticmethod
-    def verify_health(entity_list: list[Entity]):
+    def health_verify(entity_list: list[Entity]):
         for ent in entity_list:
             if ent.health <= 0:
                 entity_list.remove(ent)
