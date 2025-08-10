@@ -1,14 +1,16 @@
 import pygame
 
-#COLORS
-ORANGE_COLOR = (255, 128, 0)
-WHITE_COLOR = (255, 255, 255)
-YELLOW_COLOR = (255,255,0)
+#C == COLORS
+ORANGE_C = (255, 128, 0)
+WHITE_C = (255, 255, 255)
+YELLOW_C = (255,255,0)
+GREEN_C = (0, 128, 0)
+CYAN_C = (0, 128, 128)
 
 #M
 MENU_OPTIONS = ('UM JOGADOR', 'DOIS JOGADORES - COOPERATIVO', 'DOIS JOGADORES - COMPETITIVO', 'PONTUAÇÕES', 'SAIR')
 
-#entities speeds
+#Entities Speeds
 ENTITY_SPEED = {'Level1Bg0': 0,'Level1Bg1': 1,'Level1Bg2': 1,'Level1Bg3': 3,'Level1Bg4': 4,'Level1Bg5': 5,'Level1Bg6': 6, 'Enemy1': 1, 'Enemy2': 2, 'Player1Shot': 4, 'Player2Shot': 4, 'Enemy1Shot': 6, 'Enemy2Shot': 6,}
 
 PLAYER_SPEED = 3
@@ -34,14 +36,13 @@ ENTITIES_HEALTH = {
     'Enemy1Shot': 1,
     'Enemy2Shot': 1
 }
-#Shooting delay for entities
+#Entities Shooting Delay
 ENTITIES_SHOOT_DELAY = {
     'Player1': 15,
     'Player2': 15,
     'Enemy1': 80,
     'Enemy2': 80,
 }
-
 ENTITIES_DAMAGES = {
     'Level1Bg0': 0,
     'Level1Bg1': 0,
