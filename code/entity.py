@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import pygame.image
 
-from code.const import ENTITIES_HEALTH, ENTITIES_DAMAGES
+from code.const import ENTITIES_HEALTH, ENTITIES_DAMAGES, ENTITY_REWARD_SCORE
 
 
 class Entity(ABC):
@@ -14,6 +14,7 @@ class Entity(ABC):
         self.health = ENTITIES_HEALTH[self.name]
         self.entityShoot = pygame.image.load('./assets/' + name + '.png').convert_alpha()
         self.damage = ENTITIES_DAMAGES[self.name]
+        self.score = ENTITY_REWARD_SCORE[self.name]
         self.last_damage = 'None'
 
     @abstractmethod

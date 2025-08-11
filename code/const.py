@@ -61,6 +61,24 @@ ENTITIES_DAMAGES = {
     'Enemy2Shot': 15
 }
 
+ENTITY_REWARD_SCORE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Player1': 0,
+    'Player2': 0,
+    'Enemy1': 100,
+    'Enemy2': 125,
+    'Player1Shot': 0,
+    'Player2Shot': 0,
+    'Enemy1Shot': 0,
+    'Enemy2Shot': 0
+}
+
 #Gameplay keys
 PLAYER_UP = {'Player1': pygame.K_w,
              'Player2': pygame.K_UP}

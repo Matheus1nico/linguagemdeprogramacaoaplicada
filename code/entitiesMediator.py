@@ -40,7 +40,14 @@ class EntitiesMediator:
 
     @staticmethod
     def __give_score(enemy: Enemy, entity_list: list[Entity]):
-        pass
+        if enemy.last_damage == 'Player1Shot':
+            for ent in entity_list:
+                if ent.name == 'Player1':
+                    ent.score += enemy.score
+        elif enemy.last_damage == 'Player2Shot':
+            for ent in entity_list:
+                if ent.name == 'Player2':
+                    ent.score += enemy.score
 
     @staticmethod
     def collision_verify(entity_list: list[Entity]):

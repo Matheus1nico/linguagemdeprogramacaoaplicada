@@ -2,7 +2,7 @@ import random
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.const import WIN_HEIGHT, WHITE_C, MENU_OPTIONS, ENEMY_EVENT, ENEMY_SPAWN_TIME, GREEN_C, CYAN_C
+from code.const import WIN_HEIGHT, WHITE_C, MENU_OPTIONS, ENEMY_EVENT, ENEMY_SPAWN_TIME, GREEN_C, CYAN_C, WIN_WIDTH
 from code.enemy import Enemy
 from code.entitiesMediator import EntitiesMediator
 from code.entity import Entity
@@ -11,7 +11,6 @@ from code.player import Player
 
 
 class Level:
-
     def __init__(self, window, name, game_mode):
         self.window = window
         self.name = name
@@ -37,10 +36,15 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+
+                #Printed Level Gameplay HUD
                 if ent.name == 'Player1':
-                    self.level_text(14, f'Vida do Jogador 1:{ent.health}', GREEN_C, (10,5))
+                    self.level_text(15, f'JOGADOR 1 - Vida: {ent.health} | Pontuação: {ent.score}', GREEN_C, (10, 5))
                 if ent.name == 'Player2':
-                    self.level_text(14, f'Vida do Jogador 2:{ent.health}', CYAN_C, (10,20))
+                    self.level_text(15, f'JOGADOR 2 - Vida: {ent.health:} | Pontuação: {ent.score}', CYAN_C, (10, 20))
+
+                #Mostrar FPS no HUD
+                #self.level_text(15, f'FPS: {clock.get_fps() :.0f}', WHITE_C, (WIN_WIDTH - 50, 5))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     print('Closing Window')
@@ -51,10 +55,6 @@ class Level:
                     choice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
-            #Printed Level Gameplay HUD
-            #self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', WHITE_C, (10,5))
-            self.level_text(14, f'FPS: {clock.get_fps() :.0f}', WHITE_C, (10, WIN_HEIGHT - 35))
-            self.level_text(14, f'Entidades: {len(self.entity_list)}', WHITE_C, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
             #Enemies collisions
             EntitiesMediator.collision_verify(entity_list = self.entity_list)
