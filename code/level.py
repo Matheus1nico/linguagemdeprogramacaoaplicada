@@ -2,7 +2,8 @@ import random
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.const import WIN_HEIGHT, WHITE_C, MENU_OPTIONS, ENEMY_EVENT, ENEMY_SPAWN_TIME, GREEN_C, CYAN_C, WIN_WIDTH
+from code.const import WIN_HEIGHT, WHITE_C, MENU_OPTIONS, ENEMY_EVENT, ENEMY_SPAWN_TIME, GREEN_C, CYAN_C, WIN_WIDTH, \
+    EVENT_TIMEOUT, TIMEOUT_STEP, LEVEL_TIMEOUT
 from code.enemy import Enemy
 from code.entitiesMediator import EntitiesMediator
 from code.entity import Entity
@@ -12,16 +13,17 @@ from code.player import Player
 
 class Level:
     def __init__(self, window, name, game_mode):
+        self.timeout = LEVEL_TIMEOUT
         self.window = window
         self.name = name
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
         self.entity_list.append(EntityFactory.get_entity('Player1'))
-        self.timeout = 20000
         if game_mode in [MENU_OPTIONS[1], MENU_OPTIONS[2]]:
             self.entity_list.append(EntityFactory.get_entity('Player2'))
         pygame.time.set_timer(ENEMY_EVENT, ENEMY_SPAWN_TIME)
+        pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self):
         pygame.mixer_music.load(f'./assets/{self.name}.mp3')
@@ -42,6 +44,7 @@ class Level:
                     self.level_text(15, f'JOGADOR 1 - Vida: {ent.health} | Pontuação: {ent.score}', GREEN_C, (10, 5))
                 if ent.name == 'Player2':
                     self.level_text(15, f'JOGADOR 2 - Vida: {ent.health:} | Pontuação: {ent.score}', CYAN_C, (10, 20))
+                self.level_text(16, f'Nivel 1', WHITE_C, (WIN_WIDTH - 30, 5))
 
                 #Mostrar FPS no HUD
                 #self.level_text(15, f'FPS: {clock.get_fps() :.0f}', WHITE_C, (WIN_WIDTH - 50, 5))
@@ -54,6 +57,10 @@ class Level:
                 if event.type == ENEMY_EVENT:
                     choice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+                if event.type == TIMEOUT_STEP:
+                    self.timeout -= TIMEOUT_STEP
+                    if self.timeout == 0:
+                        return True
 
             pygame.display.flip()
             #Enemies collisions

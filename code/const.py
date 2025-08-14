@@ -18,6 +18,8 @@ PLAYER_SPEED = 3
 ENEMY_EVENT = pygame.USEREVENT + 1
 ENEMY_SPAWN_TIME = 4000
 
+EVENT_TIMEOUT = pygame.USEREVENT + 1
+
 #Entities Health
 ENTITIES_HEALTH = {
     'Level1Bg0': 999,
@@ -79,6 +81,8 @@ ENTITY_REWARD_SCORE = {
     'Enemy2Shot': 0
 }
 
+LEVEL_TIMEOUT = 20000
+
 #Gameplay keys
 PLAYER_UP = {'Player1': pygame.K_w,
              'Player2': pygame.K_UP}
@@ -90,6 +94,8 @@ PLAYER_RIGHT = {'Player1': pygame.K_d,
              'Player2': pygame.K_RIGHT}
 PLAYER_SHOOT = {'Player1': pygame.K_SPACE,
              'Player2': pygame.K_RCTRL}
+
+TIMEOUT_STEP = 100
 
 #WINDOW SIZES
 WIN_WIDTH = 576
